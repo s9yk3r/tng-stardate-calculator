@@ -54,13 +54,13 @@ const calculateStarDate = () => {
                        @input="calculateStarDate" />
 
                 <label for="date"
-                       class="mt-3">and the current datetime</label>
+                       class="mt-3">and the current date</label>
                 <input type="date"
                        v-model="formData.date"
                        @input="calculateStarDate" />
 
                 <div class="result" v-if="starDate">
-                    <p>📅 Data stellare: <strong>{{ starDate }}</strong></p>
+                    <p>📅 Stardate: <strong>{{ starDate }}</strong></p>
                 </div>
             </div>
         </div>
