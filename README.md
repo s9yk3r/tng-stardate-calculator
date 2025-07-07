@@ -31,7 +31,7 @@
     <a href="https://github.com/s9yk3r/tng-stardate-calculator"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/s9yk3r/tng-stardate-calculator">View Demo</a>
+    <a href="https://s9yk3r.github.io/tng-stardate-calculator/">View Demo</a>
     ·
     <a href="https://github.com/s9yk3r/tng-stardate-calculator/issues">Report Bug</a>
     ·
