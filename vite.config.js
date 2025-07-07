@@ -57,7 +57,7 @@ export default defineConfig({
       ...obfuscatorConfig
     })
   ],
-  base: './',
+  base: '/tng-stardate-calculator/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
