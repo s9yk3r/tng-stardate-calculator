@@ -1,5 +1,7 @@
 <script setup>
-import {ref, reactive, watch} from 'vue'
+import {ref, reactive, onMounted} from 'vue'
+import { debounce } from 'lodash'
+import StarsAndWarp from "@/components/StarsAndWarp.vue";
 
 const formData = reactive({
     date: '',
@@ -7,7 +9,9 @@ const formData = reactive({
 })
 const starDate = ref('')
 
-const calculateStarDate = () => {
+const warp = ref(false)
+
+const calculateStarDate = debounce(() => {
     if (!formData.date) return
 
     if(formData.baseYear < 1970) {
@@ -32,35 +36,41 @@ const calculateStarDate = () => {
     // calculate the star date
     const sd = (year - formData.baseYear) * 1000 + (dayOfYear / denominator) * 1000
     starDate.value = sd.toFixed(2)
-}
+
+}, 1000)
 </script>
 
 <template>
     <div class="star-date-app">
+        <div class="background position-fixed top-0 start-0 w-100 h-100 overflow-hidden z-n1">
+            <StarsAndWarp :warp="warp" />
+        </div>
         <div class="container d-flex flex-column justify-content-center align-items-center">
             <h1 class="title">
                 🪐 Star Trek's Stardate calculator
             </h1>
 
-            <div class="calculator">
-                <label for="date">
-                    Please, insert the current base year <br>
-                    <small>(min. 1970, max. 2323. Default: 2323)</small>
-                </label>
-                <input type="number"
-                       min="1970"
-                       max="2323"
-                       v-model="formData.baseYear"
-                       @input="calculateStarDate" />
+            <div class="calculator-container">
+                <div class="calculator">
+                    <label for="date">
+                        Please, insert the current base year <br>
+                        <small>(min. 1970, max. 2323. Default: 2323)</small>
+                    </label>
+                    <input type="number"
+                           min="1970"
+                           max="2323"
+                           v-model="formData.baseYear"
+                           @input="calculateStarDate" />
 
-                <label for="date"
-                       class="mt-3">and the current date</label>
-                <input type="date"
-                       v-model="formData.date"
-                       @input="calculateStarDate" />
+                    <label for="date"
+                           class="mt-3">and the current date</label>
+                    <input type="date"
+                           v-model="formData.date"
+                           @input="calculateStarDate" />
 
-                <div class="result" v-if="starDate">
-                    <p>📅 Stardate: <strong>{{ starDate }}</strong></p>
+                    <div class="result" v-if="starDate">
+                        <p>📅 Stardate: <strong>{{ starDate }}</strong></p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,10 @@
+@use '../helpers';
+
+.wrapper {
+    max-width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: rgba(0,10,20,1) url(#{helpers.$imgs-path}warp.jpg) center no-repeat;
+    background-size: cover;
+    image-rendering: pixelated;
+}
