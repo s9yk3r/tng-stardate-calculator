@@ -66,7 +66,7 @@ export default defineConfig({
   build: {
     minify: 'esbuild',
     cssMinify: 'lightningcss',
-    outDir: 'dist',
+    outDir: 'docs',
     assetsDir: '/assets',
     emptyOutDir: false,
     rollupOptions: {
