@@ -12,15 +12,14 @@ const router = createRouter({
     {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
-      component: () => import('../views/NotFoundView.vue')
-    }
+      component: () => import('../views/NotFoundView.vue'),
+    },
   ],
 })
 
-
 router.resolve({
   name: 'not-found',
-  params: { pathMatch: ['not', 'found'] }
+  params: { pathMatch: ['not', 'found'] },
 }).href
 
 export default router
