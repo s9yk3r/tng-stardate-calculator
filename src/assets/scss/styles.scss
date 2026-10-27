@@ -5,4 +5,8 @@ body {
 }
 body {
     background: radial-gradient(circle at top, #0a0a23, #000000);
+
+  * {
+    user-select: none;
+  }
 }
