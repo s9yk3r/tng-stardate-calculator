@@ -1,12 +1,12 @@
-import { defineConfig, globalIgnores } from 'eslint/config'
-import globals from 'globals'
 import js from '@eslint/js'
+import { defineConfig, globalIgnores } from 'eslint/config'
 import pluginVue from 'eslint-plugin-vue'
+import globals from 'globals'
 
 export default defineConfig([
   {
     name: 'app/files-to-lint',
-    files: ['**/*.{js,mjs,jsx,vue}'],
+    files: ['**/*.{js,mjs,jsx,vue,ts,tsx}'], // Aggiunto .ts e .tsx
   },
 
   globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
