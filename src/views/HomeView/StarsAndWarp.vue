@@ -130,7 +130,7 @@ onMounted(async () => {
 </template>
 
 <style scoped lang="scss">
-@use 'helpers';
+@use '@/assets/scss/helpers';
 
 .wrapper {
   max-width: 100%;
